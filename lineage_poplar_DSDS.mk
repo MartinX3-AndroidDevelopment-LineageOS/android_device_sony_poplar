@@ -12,14 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES :=  \
-    $(LOCAL_DIR)/lineage_poplar.mk \
-    $(LOCAL_DIR)/lineage_poplar_DSDS.mk
+# Inherit device parts
+$(call inherit-product, device/sony/poplar/aosp_g8342.mk)
 
-COMMON_LUNCH_CHOICES += \
-    lineage_poplar-eng \
-    lineage_poplar-userdebug \
-    lineage_poplar-user \
-    lineage_poplar_DSDS-eng \
-    lineage_poplar_DSDS-userdebug \
-    lineage_poplar_DSDS-user \
+# Override Product Name
+PRODUCT_NAME := lineage_poplar_DSDS
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := poplar
